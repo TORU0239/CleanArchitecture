@@ -1,7 +1,8 @@
-package sg.toru.cleanarchitecture
+package sg.toru.cleanarchitecture.presentation.feature
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import sg.toru.cleanarchitecture.R
 
 class MainActivity : AppCompatActivity() {
 
