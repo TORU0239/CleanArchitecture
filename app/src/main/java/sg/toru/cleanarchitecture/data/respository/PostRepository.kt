@@ -4,7 +4,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import sg.toru.cleanarchitecture.data.api.NetworkUtil
+import sg.toru.cleanarchitecture.data.util.NetworkUtil
 import sg.toru.cleanarchitecture.data.api.PostApi
 import java.util.concurrent.TimeUnit
 
@@ -32,5 +32,5 @@ class PostRepository {
             .build()
     }
 
-    fun getPostService() = retrofit(okHttpClient).create(PostApi::class.java)
+    fun getPostService(): PostApi = retrofit(okHttpClient).create(PostApi::class.java)
 }

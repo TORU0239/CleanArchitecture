@@ -7,14 +7,28 @@ import kotlinx.coroutines.launch
 import sg.toru.cleanarchitecture.data.respository.PostRepository
 
 class PostUseCase (private val postRepo: PostRepository) {
-    private val job = Job()
-    private val scope:CoroutineScope = CoroutineScope(Dispatchers.IO + job)
+    private val scope:CoroutineScope = CoroutineScope(Dispatchers.IO)
 
     fun readPostData() {
+        val service = postRepo.getPostService()
         try {
-            scope.launch {
+            CoroutineScope(Dispatchers.IO).launch {
                 try {
-                    postRepo.getPostService().getPosts()
+                    service.getPosts()
+                } catch (e:Exception) {
+                    e.printStackTrace()
+                }
+            }
+        } catch (e:Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    fun readCommentData(number:String) {
+        try {
+            CoroutineScope(Dispatchers.IO).launch {
+                try {
+                    postRepo.getPostService().getComments(number)
                 } catch (e:Exception) {
                     e.printStackTrace()
                 }
