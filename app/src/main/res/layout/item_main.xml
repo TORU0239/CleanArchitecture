@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVerticalBegin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVerticalEnd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp"/>
+
+    <ImageView
+        android:id="@+id/imgIndex"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/oval_gray"
+        android:padding="10dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_location_on_24px"
+        app:layout_constraintStart_toStartOf="@id/guidelineVerticalBegin"
+        app:layout_constraintTop_toTopOf="@+id/txtTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/txtBody"
+        app:layout_constraintDimensionRatio="1:1"/>
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgIndex"
+        app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd"
+        tools:text="Title"/>
+
+    <TextView
+        android:id="@+id/txtBody"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="6dp"
+        app:layout_constraintTop_toBottomOf="@id/txtTitle"
+        app:layout_constraintStart_toEndOf="@id/imgIndex"
+        app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd"
+        tools:text="Title"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
