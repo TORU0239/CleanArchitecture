@@ -10,8 +10,8 @@ import java.util.concurrent.TimeUnit
 
 // test
 object NetworkClient {
-    private lateinit var okHttpClient:OkHttpClient
-    lateinit var retrofit:Retrofit
+    private var okHttpClient:OkHttpClient
+    var retrofit:Retrofit
     init {
         okHttpClient = okHttp3()
         retrofit = retrofit(okHttpClient)
@@ -40,7 +40,6 @@ object NetworkClient {
 // test end
 
 class PostRepository {
-
     private fun okHttp3(): OkHttpClient {
         val interceptor = HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
