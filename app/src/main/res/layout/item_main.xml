@@ -9,30 +9,29 @@
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineVerticalBegin"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="16dp"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineVerticalEnd"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_end="16dp"/>
 
     <ImageView
         android:id="@+id/imgIndex"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:background="@drawable/oval_gray"
-        android:padding="10dp"
+        android:padding="4dp"
         android:scaleType="fitXY"
         android:src="@drawable/ic_location_on_24px"
         app:layout_constraintStart_toStartOf="@id/guidelineVerticalBegin"
-        app:layout_constraintTop_toTopOf="@+id/txtTitle"
-        app:layout_constraintBottom_toBottomOf="@+id/txtBody"
-        app:layout_constraintDimensionRatio="1:1"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <TextView
         android:id="@+id/txtTitle"

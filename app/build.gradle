@@ -24,6 +24,10 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -49,6 +53,9 @@ dependencies {
     // Dagger2
     implementation 'com.google.dagger:dagger:2.25.4'
     kapt 'com.google.dagger:dagger-compiler:2.25.4'
+
+    // RecyclerView
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
 
 
     testImplementation 'junit:junit:4.12'
