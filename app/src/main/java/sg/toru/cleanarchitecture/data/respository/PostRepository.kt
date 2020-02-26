@@ -4,12 +4,12 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import sg.toru.cleanarchitecture.data.util.NetworkUtil
 import sg.toru.cleanarchitecture.data.api.PostApi
+import sg.toru.cleanarchitecture.data.util.NetworkUtil
 import java.util.concurrent.TimeUnit
+import javax.inject.Singleton
 
 class PostRepository {
-
     private val okHttpClient = okHttp3()
 
     private fun okHttp3(): OkHttpClient {

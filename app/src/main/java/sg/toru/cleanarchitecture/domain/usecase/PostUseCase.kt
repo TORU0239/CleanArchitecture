@@ -4,6 +4,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import sg.toru.cleanarchitecture.data.entity.Comment
 import sg.toru.cleanarchitecture.data.entity.Post
 import sg.toru.cleanarchitecture.data.respository.PostRepository
 
@@ -28,11 +29,15 @@ class PostUseCase (private val postRepo: PostRepository) {
         }
     }
 
-    fun readCommentData(number:String) {
+    fun readCommentData(number:String, callback: (List<Comment>) -> Unit) {
+        val service = postRepo.getPostService()
         try {
             CoroutineScope(Dispatchers.IO).launch {
                 try {
-                    postRepo.getPostService().getComments(number)
+                    val list = service.getComments(number)
+                    withContext(Dispatchers.Main){
+                        callback.invoke(list)
+                    }
                 } catch (e:Exception) {
                     e.printStackTrace()
                 }
