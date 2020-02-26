@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import sg.toru.cleanarchitecture.R
 import sg.toru.cleanarchitecture.data.entity.Post
 
-class MainRecyclerAdapter : RecyclerView.Adapter<MainVH>() {
+class MainRecyclerAdapter(private val clickListener:(Post)->Unit) : RecyclerView.Adapter<MainVH>() {
 
     var lists:List<Post> = listOf()
     set(value) {
@@ -20,7 +20,7 @@ class MainRecyclerAdapter : RecyclerView.Adapter<MainVH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainVH {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_main, parent, false)
-        return MainVH(view)
+        return MainVH(view, clickListener)
     }
 
     override fun getItemCount(): Int {
@@ -32,12 +32,16 @@ class MainRecyclerAdapter : RecyclerView.Adapter<MainVH>() {
     }
 }
 
-class MainVH(view: View): RecyclerView.ViewHolder(view) {
+class MainVH(
+    view: View,
+    private val clickListener:(Post)->Unit
+): RecyclerView.ViewHolder(view) {
     private var title:TextView = view.findViewById(R.id.txtTitle)
-    private var body:TextView = view.findViewById(R.id.txtBody)
 
     fun bind(post:Post) {
         title.text = post.title
-        body.text = post.body
+        itemView.setOnClickListener {
+            clickListener.invoke(post)
+        }
     }
 }
