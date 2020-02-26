@@ -1,5 +1,6 @@
 package sg.toru.cleanarchitecture.data.api
 
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 import sg.toru.cleanarchitecture.data.entity.Comment
@@ -11,5 +12,5 @@ interface PostApi {
     suspend fun getPosts(): List<Post>
 
     @GET(NetworkUtil.comment)
-    suspend fun getComments(@Query(NetworkUtil.postQuery) number:String): List<Comment>
+    suspend fun getComments(@Query(NetworkUtil.postQuery) number:String): Response<List<Comment>>
 }

@@ -33,7 +33,11 @@ class DetailActivity : AppCompatActivity(R.layout.activity_detail) {
     }
 
     private fun callNetwork(number:String) {
-        useCase.readCommentData(number) {
+//        useCase.readCommentData(number) {
+//            Log.e("Toru", "comment size::: ${it.size}")
+//        }
+
+        useCase.readPostData {
             Log.e("Toru", "comment size::: ${it.size}")
         }
     }
